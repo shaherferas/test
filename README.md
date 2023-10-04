@@ -1,7 +1,8 @@
 # School System
 - **Production Build Status:** [![Build Status](https://jenkins.lamsaworld.com/buildStatus/icon?job=Lamsa-School-Service-Production-Pipline)](https://jenkins.lamsaworld.com/job/Lamsa-School-Service-Production-Pipline/)
 - **Testing Build Status:** [![Build Status](https://jenkins.lamsaworld.com/buildStatus/icon?job=Lamsa-School-Service-Testing-Pipline)](https://jenkins.lamsaworld.com/job/Lamsa-School-Service-Testing-Pipline/) <br />
-#### The school system facilitates educators in the development of customized learning materials for their students.
+
+The school system facilitates educators in the development of customized learning materials for their students.
 
 - For detailed API documentation, please refer to
   the [API Documentation](http://school-testing.lamsaworld.com/api/documentation).
@@ -15,7 +16,7 @@ This system comprises two integral components:
 - User Interface: This component provides an intuitive client dashboard for teachers and schools to oversee and manage
   their learning materials.
 
-## [System Components](docs/componentes.md)
+## System Components
 
 ### Authentication and Authorization
 
@@ -55,7 +56,7 @@ The teacher tools component is designed to meet the needs of educators. It suppo
 management, and the creation and management of educational content. Teachers can use these tools to deliver effective
 instruction to their students.
 
-## [Architecture](docs/architecture.md)
+## Architecture
 
 ![Architecture](https://lh3.googleusercontent.com/drive-viewer/AK7aPaCMu2qRQrNFra22HVfKqgfae5tAPWGHPKFdEKE3JSExxicmRYGg-OxauE-u_uvaR41HRaRO2OmHabaWRMmpl0SWUcuqdg=s1600)
 
@@ -79,7 +80,7 @@ By adopting the Repository Pattern, we achieve several benefits, including:
 This architectural choice enhances the overall quality and maintainability of our codebase, making it more
 developer-friendly and robust.
 
-## [Technology Stack](docs/techstack.md)
+## Technology Stack
 
 ### Front-End Framework: Vue.js
 
@@ -109,7 +110,7 @@ Our application utilizes the Spatie/Permission library to manage user permission
 simplifies access control, making it easy to define and manage user roles and permissions, enhancing the security and
 access control of our system.
 
-## [Getting Started](docs/starting.md)
+## Getting Started
 
 These instructions will help you set up and run the project on your local machine, specifically for development and
 testing purposes.
@@ -145,7 +146,7 @@ Follow these steps to set up the project:
     ````$ source .env ```` <br />
 > - Windows : run the env.bat file
 
-##  [Running the Project ](docs/running.md)
+## Running the Project
 
 ### With Docker (Local Machine)
 
@@ -220,7 +221,7 @@ php artisan passport:install
 **_NOTE:_**
 If you performed a fresh migration, run  ````passport:install ````again to generate Passport keys.
 
-## [Running Laravel Tests](docs/testing.md)
+## Running Laravel Tests
 
 To run tests for your Laravel application, use the following command:
 
