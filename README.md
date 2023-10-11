@@ -1,114 +1,20 @@
-# School System
-- **Production Build Status:** [![Build Status](https://jenkins.lamsaworld.com/buildStatus/icon?job=Lamsa-School-Service-Production-Pipline)](https://jenkins.lamsaworld.com/job/Lamsa-School-Service-Production-Pipline/)
-- **Testing Build Status:** [![Build Status](https://jenkins.lamsaworld.com/buildStatus/icon?job=Lamsa-School-Service-Testing-Pipline)](https://jenkins.lamsaworld.com/job/Lamsa-School-Service-Testing-Pipline/) <br />
+# Content Service
+**Production Build Status:**
 
-The school system facilitates educators in the development of customized learning materials for their students.
+**[![Build Status](https://jenkins.lamsaworld.com/buildStatus/icon?job=Production-Content-Service-Pipline)](https://jenkins.lamsaworld.com/job/Production-Content-Service-Pipline-Pipline/)**
 
-- For detailed API documentation, please refer to
-  the [API Documentation](http://school-testing.lamsaworld.com/api/documentation).
-- For comprehensive system documentation, please check
-  the [System Documentation](https://docs.google.com/document/d/12v5BTRRuzksLnhRBEyZd4kJ_9gI5ttLGc9Z-o1xDgUI/edit?usp=sharing).
+**Testing Build Status:**
 
-This system comprises two integral components:
+[![Build Status](https://jenkins.lamsaworld.com/buildStatus/icon?job=Content-Service-Testing-Pipline)](https://jenkins.lamsaworld.com/job/Content-Service-Testing-Pipline/) <br />
 
-- Data Service Layer: This RESTful back-end system manages the database, retrieves data, and seamlessly transmits it to
-  both the front-end and mobile interfaces.
-- User Interface: This component provides an intuitive client dashboard for teachers and schools to oversee and manage
-  their learning materials.
+This service handle everything related to Content, it's 
+- Responsible for content listing, returning the content to the app and streaming content events.
+- Handle the recommendation with GoogleML and AwsML.
+- Handle the adaptive algorithm.
 
-## System Components
 
-### Authentication and Authorization
+Check [API Documentation](https://api-testing.lamsaworld.com/v1/content/api/doc) -  for this service
 
-This component ensures secure access to the system. It handles user authentication, authorization, and role management,
-allowing users to log in, maintain their profiles, and access appropriate features based on their roles
-
-### Content Management
-
-The content management component is responsible for creating, storing, and organizing educational materials.It
-facilitates the creation of diverse educational materials, including a variety of learning content. This content can be
-easily updated and retrieved as needed.
-
-### Invitation System
-
-The invitation system streamlines the onboarding process for new students. It manages invitations, validates user
-requests, and facilitates the student invitation process, ensuring a smooth start for students joining the platform.
-
-### Learning Paths
-
-The learning paths component empowers educators to design and customize educational journeys for students. It allows for
-the creation of structured learning paths, enabling students to progress through the curriculum in a logical sequence.
-
-### School Management
-
-This component handles information related to educational institutions. It supports school registration, profile
-management, and administrative functions, Providing a centralized hub for school-related activities and individual
-teacher activities, allowing efficient management and coordination.
-
-### Student Management
-
-The student management component focuses on student-related operations. It allows for student registration, profile
-management, and progress tracking.
-
-### Teacher Tools
-
-The teacher tools component is designed to meet the needs of educators. It supports teacher registration, profile
-management, and the creation and management of educational content. Teachers can use these tools to deliver effective
-instruction to their students.
-
-## Architecture
-
-![Architecture](https://lh3.googleusercontent.com/drive-viewer/AK7aPaCMu2qRQrNFra22HVfKqgfae5tAPWGHPKFdEKE3JSExxicmRYGg-OxauE-u_uvaR41HRaRO2OmHabaWRMmpl0SWUcuqdg=s1600)
-
-### Repository Pattern
-
-Our project follows the Repository Pattern, which is a design pattern that enhances data access and separation of
-concerns within our application. With the Repository Pattern, we've structured our data access layer to use dedicated
-repository classes. These repositories act as a bridge between our application's business logic and the data source,
-providing a clean and organized way to manage data operations.
-
-By adopting the Repository Pattern, we achieve several benefits, including:
-
-- **Modularity**: Separating data access logic into repositories makes our codebase more modular and maintainable.
-
-- **Testability**: It becomes easier to write unit tests for our application, as we can mock repository implementations
-  to isolate data-related concerns.
-
-- **Flexibility**: The Repository Pattern allows us to switch between different data storage mechanisms (e.g.,
-  databases, APIs) with minimal changes to our business logic.
-
-This architectural choice enhances the overall quality and maintainability of our codebase, making it more
-developer-friendly and robust.
-
-## Technology Stack
-
-### Front-End Framework: Vue.js
-
-Our front-end is powered by Vue.js, a progressive JavaScript framework for building user interfaces. Vue.js enables us
-to create interactive and dynamic web applications with ease.
-
-### UI Library: Vuetify
-
-We utilize Vuetify, a Material Design component framework, to build a sleek and responsive user interface. Vuetify
-provides a rich set of pre-designed components and utilities, ensuring a consistent and visually appealing design across
-our application.
-
-### Repository Pattern
-
-We've implemented the repository pattern to enhance data access and separation of concerns within our application. This
-architectural choice allows us to manage data access through dedicated repository classes, making our codebase more
-maintainable and testable.
-
-### Spatie/Data
-
-We leverage the Spatie/Data library to validate incoming requests as objects. This library streamlines request
-validation by treating request data as objects, offering a cleaner and more organized approach to request handling.
-
-### Spatie/Permission
-
-Our application utilizes the Spatie/Permission library to manage user permissions and roles efficiently. This library
-simplifies access control, making it easy to define and manage user roles and permissions, enhancing the security and
-access control of our system.
 
 ## Getting Started
 
@@ -119,9 +25,8 @@ testing purposes.
 
 Before getting started, ensure you have the following software and tools installed on your system:
 
-- [Laravel](https://laravel.com) v9.52.10 via [Composer](https://getcomposer.org)
-- [Node.js](https://nodejs.org) (latest version) via [npm](https://www.npmjs.com)
-- PHP v8.0.2 or above
+- [Symfony](https://symfony.com) v3.4 via [Composer](https://getcomposer.org)
+- PHP v7.1
 - An API testing tool like [Postman](https://www.postman.com)
 
 ## Installation
@@ -133,18 +38,44 @@ Follow these steps to set up the project:
 3. Inside your new `.env` file, update the following configurations:
 
    ```plaintext
-   DB_CONNECTION=mysql
-   DB_HOST='your_database_host'
-   DB_PORT='your_database_port'
-   DB_DATABASE='your_database_schema_name'
-   DB_USERNAME='your_database_username'
-   DB_PASSWORD='your_database_password'
-
+    DB_HOST='Put the host'
+    DB_PASSWORD='Put the password'
+    DB_NAME=content
+    DB_PORT=3306
+    DB_USER='Put the user name'
+    JWT_KEY_PASS_PHRASE=
+    JWT_TOKEN_TTL=
+    SYMFONY_ENV=dev
+    CONTENT_PRIVATE_KEY=''
+    KEY_PAIR_ID=''
+    CONTENT_RECOMMENDATION_ARN='arn:aws:personalize:us-east-1:***************'
+    SECTION_RECOMMENDATION_ARN='arn:aws:personalize:us-east-1:***************'
+    SECTION_CONTENTS_RANK_ARN='arn:aws:personalize:us-east-1:***************'
+    CAMPAIGN_CONTENT_ARN='arn:aws:personalize:us-east-1:***************'
+    CAMPAIGN_SECTION_ARN='arn:aws:personalize:us-east-1:***************'
+    FILTER_CONTENT_ARN='arn:aws:personalize:us-east-1:***************'
+    FILTER_SECTION_ARN='arn:aws:personalize:us-east-1:***************'
+    CAMPAIGN_TREND_ARN='arn:aws:personalize:us-east-1:***************'
+    AWS_KEY='***************'
+    AWS_SECRET='***************'
+    BUCKET_NAME=''
+    GOOGLE_PREDICTION_SECRET='***************'
+    GOOGLE_APPLICATION_CREDENTIALS='***************'
 - Export the environment variables:
-
 > - On MacOS/Linux, run the command: run command
     ````$ source .env ```` <br />
 > - Windows : run the env.bat file
+> * make sure your variables are sourced by running this command ```echo $DB_HOST```
+#### Install Composer dependencies:
+```sh
+composer install 
+```
+
+Or
+
+```sh
+composer update 
+```
 
 ## Running the Project
 
@@ -164,66 +95,15 @@ Or
    ```shell
     docker-compose build
 ```
-
-### To sync code changes between your machine and the container, add the following volume mounts to docker-compose-lamsa-school-service in your docker-compose.yml file:
-
-- volumes:
-  > ./storage/logs:/var/www/html/storage/logs <br />
-  > ./app:/var/www/html/app <br />
-  > ./public:/var/www/html/public <br />
-
-### Apply code changes without restarting the container by running:
-
-```sh
-make npm-dev 
+### With Symfony Server (Local Machine)
+Run the following to start symfony server
+  ```shell 
+$ php bin/console server:start
 ```
 
-### Without Docker
+## Running Tests
 
-#### Install Composer dependencies:
-
-```sh
-composer install 
-```
-
-Or
+To run tests for your Symfony application, use the following command:
 
 ```sh
-composer update 
-```
-
-##### Perform Laravel migration and seeding:
-
-```sh
-php artisan migrate:fresh --seed --seeder=PermissionSeeder
-```
-
-**_NOTE:_**
-
-If you are confident that existing permissions won't conflict with PermissionSeeder.php, use:
-
-```sh
-php artisan migrate
-```
-
-#### To sync all permissions into the database, run:
-
-```sh
-php artisan permissions:sync
-```
-
-#### Set up Laravel Passport authentication:
-
-```sh
-php artisan passport:install
-```
-
-**_NOTE:_**
-If you performed a fresh migration, run  ````passport:install ````again to generate Passport keys.
-
-## Running Laravel Tests
-
-To run tests for your Laravel application, use the following command:
-
-```sh
-php artisan test
+run this command ```./vendor/bin/phpunit ```
